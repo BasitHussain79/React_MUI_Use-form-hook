@@ -7,7 +7,7 @@ import FormInputDropdown from "../components/FormInputDropdown";
 import FromInputDate from "../components/FormInputDate";
 import FormInputSlider from "../components/FormInputSlider";
 import FormInputMultiCheckbox from "../components/FormInputMultiCheckbox";
-
+import FormAutocompleted from "../components/FormAutocompleted";
 interface IFormInput {
   textValue: string;
   radioValue: string;
@@ -15,6 +15,7 @@ interface IFormInput {
   dateValue: Date;
   sliderValue: number;
   checkboxValue: string[];
+  autocompleteValue: string;
 }
 
 const defaultValues = {
@@ -24,6 +25,7 @@ const defaultValues = {
   dateValue: new Date(),
   sliderValue: 0,
   checkboxValue: [],
+  autocompleteValue: "A",
 };
 
 const FormDemo = () => {
@@ -70,7 +72,9 @@ const FormDemo = () => {
         label='Checkbox'
         setValue={setValue}
       />
-
+      {/* autocomplete */}
+      <FormAutocompleted name='autocompleteValue' control={control} />
+      {/* submit */}
       <Button onClick={handleSubmit(onSubmit)} variant={"contained"}>
         Submit
       </Button>
