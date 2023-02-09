@@ -8,6 +8,12 @@ import FromInputDate from "../components/FormInputDate";
 import FormInputSlider from "../components/FormInputSlider";
 import FormInputMultiCheckbox from "../components/FormInputMultiCheckbox";
 import FormAutocompleted from "../components/FormAutocompleted";
+import FormMultipleAutoComplete from "../components/FormMultipleAutoComplete";
+
+type MultipleAutoCompleteOptionsType = {
+  label: string;
+  value: number;
+};
 interface IFormInput {
   textValue: string;
   radioValue: string;
@@ -16,6 +22,7 @@ interface IFormInput {
   sliderValue: number;
   checkboxValue: string[];
   autocompleteValue: string;
+  multipleAutoCompleteValue: Array<MultipleAutoCompleteOptionsType>;
 }
 
 const defaultValues = {
@@ -26,6 +33,7 @@ const defaultValues = {
   sliderValue: 0,
   checkboxValue: [],
   autocompleteValue: "A",
+  multipleAutoCompleteValue: [{ value: "A", label: 63 }],
 };
 
 const FormDemo = () => {
@@ -74,6 +82,11 @@ const FormDemo = () => {
       />
       {/* autocomplete */}
       <FormAutocompleted name='autocompleteValue' control={control} />
+      {/* multiple autocomplete */}
+      <FormMultipleAutoComplete
+        name='multipleAutoCompleteValue'
+        control={control}
+      />
       {/* submit */}
       <Button onClick={handleSubmit(onSubmit)} variant={"contained"}>
         Submit

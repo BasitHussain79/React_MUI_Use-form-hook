@@ -19,7 +19,7 @@ const FormAutocompleted: FC<Props> = ({ name, control }) => {
         <Autocomplete
           options={options}
           onChange={(_, data) => onChange(data)}
-          defaultValue={options[1]}
+          defaultValue={options[0]}
           renderInput={(params) => (
             <TextField
               {...params}
